@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>som-vpn</title>
+  <style>
+
+/*------------------ GLOBLE---------------------- */
+    *{
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 62.5%;
+    }
+
+    body {
+      padding: 0.2rem;
+      font-family: helvetica;
+      background: linear-gradient(rgb(4, 107, 110), rgb(2, 40, 77));
+      background-repeat: no-repeat;
+      background-position: center;
+      object-fit: contain;
+      height: auto;
+      }
+
+    .container {
+      max-width: 2000px;
+    }
+
+
+
+
+/*------------------ HEADER---------------------- */
+    header {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      gap: 3rem;
+      border-bottom: 2px solid red;
+      margin-bottom: 1rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .info {
+      width: 20px;
+      cursor: pointer;
+      filter: brightness(0) saturate(100%) invert(83%) sepia(44%) saturate(563%) hue-rotate(52deg) brightness(102%) contrast(94%);
+    }
+
+     svg {
+      width: 20px;
+      fill: greenyellow;
+      cursor: pointer;
+    }
+
+    nav h1 { 
+      color: rgb(0, 0, 0);
+      font-size: 2rem;
+      border-bottom: 3px solid black;
+      border-left: 2px solid black;
+      border-right: 2px solid black;
+      border-radius: 2px;
+      padding: 1px;
+      background-color: rgb(89, 187, 138);
+      font-weight: 900;
+    }
+
+    .header-pra h2 {
+      color: red;
+      margin-bottom: 0.3rem;
+      border-bottom: 2px solid blue;
+      width: 50%;
+      margin: 0 auto;
+      margin-bottom: 1rem;
+    }
+
+    .header-pra button {
+     padding: 0.5rem 1.5rem; 
+     cursor: pointer;
+     background-color: rgb(16, 206, 190);
+     color: black;
+     font-weight: 500;
+     outline: none;
+     margin-bottom: 1rem;
+    }
+
+    .header-pra select {
+      padding: 0.5rem 1.5rem;
+      cursor: pointer;
+      background-color: lightblue;
+      margin-bottom: 0.5rem;
+    }
+
+    .header-pra p {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .header-pra select:focus {
+      outline: none;
+    }
+
+
+    /*------------------ MAIN---------------------- */
+    main {
+      max-width: 2000px;
+    
+    }
+
+   main .item {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color:greenyellow;
+    margin: 0 auto;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgb(0, 38, 255);
+    background: linear-gradient(to left, blue, red);
+    padding: 0.5rem;
+    transition: 0.50s;
+    max-width: 1000px;
+   }
+
+   main .item:hover, main .item:active {
+    padding: 5rem;
+   }
+
+    main .item img {
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    .btn{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      max-width: 2000px;
+      margin: 2rem 0px;
+    }
+
+    .btn button {
+      color: blue;
+      background-color: greenyellow;
+      padding: 1rem 1.6rem;
+      border: 1px solid red;
+      border-radius: 4px; font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .a-link {  
+      text-decoration: none;
+      color: greenyellow;
+      background-color: rgb(0, 0, 0);
+      padding: 1.2rem 1.6rem;
+      border: 1px solid red;
+      border-radius: 4px;
+      font-size: 1.5rem;
+    }
+
+/*-----------------FOOTER-------------------*/
+
+footer {
+  text-align: center;
+
+}
+
+footer p{
+  color: white;
+  font-size: 1.2rem;
+  line-height: 1.3;
+  word-spacing: 2px;
+  letter-spacing: 1px;
+}
+/*-------------------------------------------------------------------------------------------------------------*/
+    
+
+
+
+
+
+/*----------------- BAR PAGE -------------------*/
+.bar-page {
+  background: linear-gradient(rgb(4, 107, 110), rgb(2, 40, 77));
+  position: fixed;
+  top: 0.1%;
+  left: 0%;
+  right: 10%;
+  bottom: 0%;
+  z-index: 1;
+  border-radius: 10px;
+  padding: 5rem 0.5rem;
+  display: none;
+  transition: 1s ease-in-out;
+  animation: bar-animation 0.5s linear;
+  box-shadow: 5px 5px 10px 0px black;
+}
+
+
+@keyframes bar-animation {
+  0%{
+    right: 100%;
+  }
+}
+
+.left {
+  position: absolute;
+  right: 15px;
+  top: 5px;
+}
+
+.list-bar {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  border: 1px solid blue;
+  padding: 1rem;
+  background-color: rgba(8, 5, 5, 0.548);
+  color: greenyellow;
+  cursor: pointer;
+}
+
+
+.signal-page {
+  background-color: rgba(8, 5, 5, 0.548);
+  border: 1px solid greenyellow;
+  height: 100px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  gap: 2rem;
+  color: white;
+  display: none;
+  z-index: 200;
+}
+
+.signal-page p {
+  margin-top: 1rem;
+}
+
+.signal-page button{
+  color: rgb(5, 229, 236);
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  background-color: black;
+  border: 1px solid aqua;
+}
+
+
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <nav>
+        <svg class="right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>   
+        <h1>💠som-vpn</h1>
+        <a href="./about.html"><img class="info" src="/VPN/info.png" alt=""></a>
+      </nav>
+
+      <div class="header-pra">
+        <h2 class="result-connect">Disconnected</h2>
+        <select class="server" name="Country">
+          <option value="No choosed" hidden>Choose</option>
+          <option value="USA">USA</option>
+          <option value="UK">UK</option>
+          <option value="South-korea">South-Korea</option>
+          <option value="Japan">Japan</option>
+          <option value="Canada">Canada</option>
+          <option value="German">German</option>
+        </select> 
+        <p style="color: aqua;">Mbs: <span class="mbs">0</span></p>
+        <button class="connect">Connect</button>
+        <p class="error-server"></p>
+      </div>
+    </header>
+
+    <main>
+      <div class="item">
+      <img src="./programming-background-collage.jpg" alt="">
+     <p>Fast and Reliable</p> 
+      </div>
+
+      <div class="item">
+      <img src="./wbd1.jpeg" alt="">
+      <p>Privacy Protection</p>
+      </div>
+
+      <div class="btn">
+        <a href="buy-network.html"><button class="active">Boost ⚡</button></a>
+        <a class="a-link" href="contact us.html">Contact us</a>
+      </div>
+
+    </main>
+
+    <footer>
+      <p>&copy;copyright 2025 <br> all right reserved <br> author: Ahmed-Isman</p>
+    </footer>
+
+    <div class="bar-page">
+      <svg class="left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+      <div class="list-bar  signal">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M576 0c17.7 0 32 14.3 32 32l0 448c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-448c0-17.7 14.3-32 32-32zM448 96c17.7 0 32 14.3 32 32l0 352c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-352c0-17.7 14.3-32 32-32zM352 224l0 256c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32s32 14.3 32 32zM192 288c17.7 0 32 14.3 32 32l0 160c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-160c0-17.7 14.3-32 32-32zM96 416l0 64c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32s32 14.3 32 32z"/></svg>
+        <p>Signals</p>
+      </div>
+
+      <div class="list-bar go-to-contactUs-page"> 
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>        
+        <p>Contact Us</p> 
+      </div>
+
+      <div class="list-bar go-to-byNet-page">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
+        <p>Buy Network</p>
+      </div>
+
+      <div class="list-bar go-to-about-page">
+        <img class="info" src="./info.png" alt="">
+        <p>About</p>
+      </div>
+
+      <div class="signal-page">
+        <p>there is no signal channel found</p>
+        <button class="ok-signal">Ok</button>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+  <script>
+
+///////////////MAIN CLICK;//////////////////
+  const showBarPage = document.querySelector('.right');
+  const hideBarPage = document.querySelector('.left');
+
+  const barPage = document.querySelector('.bar-page');
+
+  const contactPageShow = document.querySelector('.go-to-contactUs-page');
+  const aboutPageShow = document.querySelector('.go-to-about-page');
+
+  const connect = document.querySelector('.connect');
+  const resultConnect = document.querySelector('.result-connect');
+  const server = document.querySelector('.server');
+  const mbs = document.querySelector('.mbs');
+  const errorServer = document.querySelector(".error-server");
+
+  const signal = document.querySelector('.signal');
+  const signalPage = document.querySelector('.signal-page');
+  const okSignal = document.querySelector('.ok-signal');
+
+  const buyNetPage = document.querySelector('.go-to-byNet-page');
+
+
+
+/////////////////INTERACTIVE////////////////
+showBarPage.addEventListener('click', ()=> {
+  barPage.style.display = 'block';
+})
+
+hideBarPage.addEventListener('click', ()=> {
+  barPage.style.display = 'none';
+})
+
+contactPageShow.addEventListener('click', ()=> {
+  window.location.href = 'contact us.html';
+})
+
+aboutPageShow.addEventListener('click', ()=> {
+  window.location.href = 'about.html';
+})
+
+
+connect.addEventListener('click', ()=> {
+ if(server.value === 'No choosed' && connect.innerHTML === 'Connect') {
+  errorServer.innerHTML = 'Please Choose server Country';
+  errorServer.style.color = 'red';
+  errorServer.style.fontWeight = '700';
+
+ }  else if (server.value === 'USA' && connect.innerHTML === 'Connect'){
+    resultConnect.innerHTML = 'Connected';
+    resultConnect.style.color = 'greenyellow';
+    mbs.innerHTML = '360';
+    connect.innerHTML = 'Disconnect';
+    errorServer.innerHTML = 'You choosed USA as server location. <br /> but it will not work until you pay💸';
+    errorServer.style.color = 'greenyellow';
+
+ }  else if (server.value === 'UK' && connect.innerHTML === 'Connect') {
+    resultConnect.innerHTML = 'Connected';
+    resultConnect.style.color = 'greenyellow';
+    mbs.innerHTML = '470';
+    connect.innerHTML = 'Disconnect';
+    errorServer.innerHTML = 'You choosed UK as server location. <br /> but it will not work until you pay💸';
+    errorServer.style.color = 'greenyellow';
+
+ }  else if (server.value === 'South-korea' && connect.innerHTML === 'Connect') {
+    resultConnect.innerHTML = 'Connected';
+    resultConnect.style.color = 'greenyellow';
+    mbs.innerHTML = '520';
+    connect.innerHTML = 'Disconnect';
+    errorServer.innerHTML = 'You choosed South korea as server location. <br /> but it will not work until you pay💸';
+    errorServer.style.color = 'greenyellow';
+
+ }  else if (server.value === 'Japan' && connect.innerHTML === 'Connect') {
+    resultConnect.innerHTML = 'Connected';
+    resultConnect.style.color = 'greenyellow';
+    mbs.innerHTML = '216';
+    connect.innerHTML = 'Disconnect';
+    errorServer.innerHTML = 'You choosed Japan as server location. <br /> but it will not work until you pay💸';
+    errorServer.style.color = 'greenyellow';
+
+ }  else if (server.value === 'Canada' && connect.innerHTML === 'Connect') {
+    resultConnect.innerHTML = 'Connected';
+    resultConnect.style.color = 'greenyellow';
+    mbs.innerHTML = '340';
+    connect.innerHTML = 'Disconnect';
+    errorServer.innerHTML = 'You choosed Canada as server location. <br /> but it will not work until you pay💸';
+    errorServer.style.color = 'greenyellow';
+
+ }  else if (server.value === 'German' && connect.innerHTML === 'Connect') {
+    resultConnect.innerHTML = 'Connected';
+    resultConnect.style.color = 'greenyellow';
+    mbs.innerHTML = '405';
+    connect.innerHTML = 'Disconnect';
+    errorServer.innerHTML = 'You choosed German as server location. <br /> but it will not work until you pay💸';
+    errorServer.style.color = 'greenyellow';
+
+ }
+ 
+ else {
+    resultConnect.innerHTML = 'Disconnected';
+    resultConnect.style.color = 'red';
+    mbs.innerHTML = '0';
+    connect.innerHTML = 'Connect';
+    errorServer.innerHTML = '';
+    server.value = "No choosed"
+ }
+ 
+});
+
+
+  signal.addEventListener('click', ()=> {
+    signalPage.style.display = 'flex';
+  });
+
+  okSignal.addEventListener('click', ()=> {
+    signalPage.style.display = 'none';
+  });
+
+
+  buyNetPage.addEventListener('click', ()=> {
+    window.location.href = 'buy-network.html';
+  });
+
+  </script>
+</body>
+</html>

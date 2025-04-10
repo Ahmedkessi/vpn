@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>som-vpn/Buy Net</title>
+  <style>
+        *{
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 62.5%;
+    }
+
+    body {
+      padding: 0.2rem;
+      font-family: helvetica;
+      background: linear-gradient(rgb(4, 107, 110), rgb(2, 40, 77));
+      background-repeat: no-repeat;
+      background-position: center;
+      object-fit: contain;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      }
+
+    .container {
+      max-width: 2000px;
+      text-align: center;
+    }
+
+    .card {
+      padding: 2rem 1rem;
+      background: linear-gradient(to right,  rgb(243, 146, 107),  coral);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2rem;
+     
+    }
+
+    .s-num {
+      width: 120px;
+      height: 30px;
+    }
+
+    .l-num{
+      padding: 1rem 0.5rem;
+    }
+
+    .card input:focus {
+      outline: none;
+    }
+
+    .card input {
+      border: 1px solid orange;
+    }
+
+    .card button {
+      padding: 1rem;
+      cursor: pointer;
+    }
+  
+    .container p {
+      font-size: 1.3rem;
+      color: aqua;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid;
+    }
+  
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Buy and Boost your net</h1>
+    <p>Pleae fill your card information here!</p>
+    <form action="" method="post" class="card">
+      <input type="text" name="Card number" class="l-num" required placeholder="XXXXXXXXXXXXX917">
+      <div style="display: flex; gap: 2rem;">
+        <input class="s-num" type="tell" name="Card date" required placeholder="MM/YY"> 
+        <input class="s-num" type="tell" name="Card CVC" required placeholder="XXX">
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  
+</body>
+</html>
